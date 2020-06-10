@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in asciidoctor-confluence.gemspec
+# Specify your gem's dependencies in asciidoctor-asciidoctor_confluence.gemspec
 gemspec
 
 gem "rake", "~> 12.0"

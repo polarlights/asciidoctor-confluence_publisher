@@ -6,9 +6,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["polarlights"]
   spec.email         = ["godhuyang@hotmail.com"]
 
-  spec.summary       = %q{Parse asciidoc and publish the document to confluence.}
-  spec.description   = %q{Asciidoctor-Confluence parse asciidoc and publish the document to confluence.}
-  spec.homepage      = "https://github.com/polarlights/asciidoctor-confluence"
+  spec.summary       = %q{Parse asciidoc and publish the document to asciidoctor_confluence.}
+  spec.description   = %q{Asciidoctor-Confluence parse asciidoc and publish the document to asciidoctor_confluence.}
+  spec.homepage      = "https://github.com/polarlights/asciidoctor-asciidoctor_confluence"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
@@ -22,4 +22,8 @@ Gem::Specification.new do |spec|
   end
   spec.executables   = ['asciidoctor-confluence']
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency 'asciidoctor', '~> 2.0.0'
+
+  spec.add_development_dependency 'pry-byebug'
 end
