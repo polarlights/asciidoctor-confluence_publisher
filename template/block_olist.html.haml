@@ -1,0 +1,8 @@
+- if title?
+  .cp-olist-title= title
+%ol
+  - items.each do |item|
+    %li
+      %p= item.text
+      - if item.blocks?
+        = item.content

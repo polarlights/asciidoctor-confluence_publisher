@@ -1,0 +1,3 @@
+- if (attr? :toc) && (attr? 'toc-placement', 'auto')
+  %p =Haml::Engine.new(File.read("block_toc.html.haml")).render
+= content

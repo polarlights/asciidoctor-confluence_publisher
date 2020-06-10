@@ -1,0 +1,24 @@
+%table
+  - if title?
+    %caption.title =captioned_title
+  - unless (attr :rowcount).zero?
+    - [:head, :foot, :body].select {|tblsec| !@rows[tblsec].empty? }.each do |tblsec|
+      - haml_tag "t#{tblsec}" do
+        - @rows[tblsec].each do |row|
+          %tr
+            - row.each do |cell|
+              - haml_tag "#{(tblsec == :head || cell.style == :header) ? 'th' : 'td'}", colspan: cell.colspan, rowspan: cell.rowspan do
+                - if tblsec == :head
+                  = cell.text
+                - else
+                  - case cell.style
+                  - when :asciidoc
+                    %div= cell.content
+                  - when :verse
+                    .verse= cell.text
+                  - when :literal
+                    .literal
+                      %pre= cell.text
+                  - else
+                    - cell.content.each do |text|
+                      = text

@@ -5,7 +5,7 @@ module Asciidoctor
   module Confluence
     class Command
       # default template directory for asciidoctor_confluence marcos
-      DEFAULT_TEMPLATE_DIR = File.expand_path("../../../templates", __FILE__)
+      DEFAULT_TEMPLATE_DIR = File.expand_path("../../../../template", __FILE__)
 
       def self.execute args
         options = Asciidoctor::Cli::Options.new
@@ -22,6 +22,8 @@ module Asciidoctor
         else
           options[:backend] = 'xhtml5'
           options[:template_dirs] = Array(options[:template_dirs]) << DEFAULT_TEMPLATE_DIR
+          options[:to_file] = false
+          options[:header_footer] = false
           invoker = Asciidoctor::Confluence::Invoker.new options
           GC.start
           invoker.invoke!

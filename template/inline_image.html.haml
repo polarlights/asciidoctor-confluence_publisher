@@ -1,0 +1,6 @@
+- attr? :link
+  %ac:image{ "ac:title" => title? && title, "ac:alt" => (attr :alt), "ac:height" => (attr :height), "ac:width" => (attr :width) }
+    - if uri_link? attr :target
+      %ri:url{ "ri:value" => attr :target }
+    - else
+      %ri:attatchment{ "ri:filename" => attr :target }
