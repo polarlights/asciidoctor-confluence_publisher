@@ -1,3 +1,10 @@
 require 'asciidoctor'
 require_relative "confluence/version"
 require_relative "confluence/invoker"
+require_relative 'confluence/model/base'
+require_relative 'confluence/model/ancestor'
+require_relative 'confluence/model/attachment'
+require_relative 'confluence/model/property'
+require_relative 'confluence/model/space'
+require_relative 'confluence/model/version'
+require_relative 'confluence/model/page'
