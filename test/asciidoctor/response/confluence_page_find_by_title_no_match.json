@@ -1,0 +1,11 @@
+{
+    "results": [],
+    "start": 0,
+    "limit": 25,
+    "size": 0,
+    "_links": {
+        "self": "https://example.com/rest/api/content?expand=ancestors,version,space&title=haha&space=SPC",
+        "base": "https://example.com",
+        "context": ""
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id": "45677469",
+    "key": "resource-hash",
+    "value": {
+        "attr1": "attr1",
+        "attr2": "attr2"
+    },
+    "version": {
+        "when": "2020-06-13T15:46:50.486+08:00",
+        "message": "",
+        "number": 1,
+        "minorEdit": false,
+        "hidden": false
+    },
+    "_links": {
+        "base": "https://example.com",
+        "context": "",
+        "self": "https://example.com/rest/api/content/45674401/property/resource-hash"
+    },
+    "_expandable": {
+        "content": "/rest/api/content/45674401"
+    }
+}

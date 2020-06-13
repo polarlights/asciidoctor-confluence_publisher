@@ -5,7 +5,7 @@ module Asciidoctor
         attr_accessor :id, :title, :version
 
         def version=(ver)
-          Version.new(ver)
+          @version = Version.new(ver)
         end
       end
     end

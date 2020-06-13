@@ -1,0 +1,76 @@
+{
+    "id": "45677364",
+    "type": "attachment",
+    "status": "current",
+    "title": "LICENSE.txt",
+    "version": {
+        "by": {
+            "type": "known",
+            "username": "username",
+            "userKey": "4028b20f5f50dd7e01607271fdbf000b",
+            "profilePicture": {
+                "path": "/images/icons/profilepics/default.svg",
+                "width": 48,
+                "height": 48,
+                "isDefault": true
+            },
+            "displayName": "Username",
+            "_links": {
+                "self": "https://example.com/rest/api/user?key=4028b20f5f50dd7e01607271fdbf000b"
+            },
+            "_expandable": {
+                "status": ""
+            }
+        },
+        "when": "2020-06-11T19:30:34.000+08:00",
+        "message": "",
+        "number": 1,
+        "minorEdit": true,
+        "hidden": false,
+        "_links": {
+            "self": "https://example.com/rest/experimental/content/45677364/version/1"
+        },
+        "_expandable": {
+            "content": "/rest/api/content/45677364"
+        }
+    },
+    "metadata": {
+        "mediaType": "text/plain",
+        "labels": {
+            "results": [],
+            "start": 0,
+            "limit": 200,
+            "size": 0,
+            "_links": {
+                "self": "https://example.com/rest/api/content/45677364/label"
+            }
+        },
+        "_expandable": {
+            "currentuser": "",
+            "properties": "",
+            "frontend": "",
+            "editorHtml": ""
+        }
+    },
+    "extensions": {
+        "mediaType": "text/plain",
+        "fileSize": 11357,
+        "comment": ""
+    },
+    "_links": {
+        "webui": "/display/space/haha?preview=%2F45674401%2F45677364%2FLICENSE.txt",
+        "download": "/download/attachments/45674401/LICENSE.txt?version=1&modificationDate=1591875034000&api=v2",
+        "self": "https://example.com/rest/api/content/45677364"
+    },
+    "_expandable": {
+        "container": "/rest/api/content/45674401",
+        "operations": "",
+        "children": "/rest/api/content/45677364/child",
+        "restrictions": "/rest/api/content/45677364/restriction/byOperation",
+        "history": "/rest/api/content/45677364/history",
+        "ancestors": "",
+        "body": "",
+        "descendants": "/rest/api/content/45677364/descendant",
+        "space": "/rest/api/space/space"
+    }
+}

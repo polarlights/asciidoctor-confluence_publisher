@@ -1,0 +1,105 @@
+{
+    "id": "45674401",
+    "type": "page",
+    "status": "current",
+    "title": "another title",
+    "space": {
+        "id": 720897,
+        "key": "space",
+        "name": "SPACE_NAME",
+        "type": "global",
+        "_links": {
+            "webui": "/display/space",
+            "self": "https://example.com/rest/api/space/space"
+        },
+        "_expandable": {
+            "metadata": "",
+            "icon": "",
+            "description": "",
+            "homepage": "/rest/api/content/753665"
+        }
+    },
+    "version": {
+        "by": {
+            "type": "known",
+            "username": "username",
+            "userKey": "4028b20f5f50dd7e01607271fdbf000b",
+            "profilePicture": {
+                "path": "/images/icons/profilepics/default.svg",
+                "width": 48,
+                "height": 48,
+                "isDefault": true
+            },
+            "displayName": "Username",
+            "_links": {
+                "self": "https://example.com/rest/api/user?key=4028b20f5f50dd7e01607271fdbf000b"
+            },
+            "_expandable": {
+                "status": ""
+            }
+        },
+        "when": "2020-06-11T19:24:34.000+08:00",
+        "message": "",
+        "number": 2,
+        "minorEdit": false,
+        "hidden": false,
+        "_links": {
+            "self": "https://example.com/rest/experimental/content/45674401/version/2"
+        },
+        "_expandable": {
+            "content": "/rest/api/content/45674401"
+        }
+    },
+    "ancestors": [
+        {
+            "id": "753665",
+            "type": "page",
+            "status": "current",
+            "title": "SPACE_NAME",
+            "extensions": {
+                "position": "none"
+            },
+            "_links": {
+                "webui": "/pages/viewpage.action?pageId=753665",
+                "edit": "/pages/resumedraft.action?draftId=753665",
+                "tinyui": "/x/AYAL",
+                "self": "https://example.com/rest/api/content/753665"
+            },
+            "_expandable": {
+                "container": "/rest/api/space/space",
+                "metadata": "",
+                "operations": "",
+                "children": "/rest/api/content/753665/child",
+                "restrictions": "/rest/api/content/753665/restriction/byOperation",
+                "history": "/rest/api/content/753665/history",
+                "ancestors": "",
+                "body": "",
+                "version": "",
+                "descendants": "/rest/api/content/753665/descendant",
+                "space": "/rest/api/space/space"
+            }
+        }
+    ],
+    "extensions": {
+        "position": "none"
+    },
+    "_links": {
+        "webui": "/display/space/haha",
+        "edit": "/pages/resumedraft.action?draftId=45674401",
+        "tinyui": "/x/oe_4Ag",
+        "collection": "/rest/api/content",
+        "base": "https://example.com",
+        "context": "",
+        "self": "https://example.com/rest/api/content/45674401"
+    },
+    "_expandable": {
+        "container": "/rest/api/space/space",
+        "metadata": "",
+        "operations": "",
+        "children": "/rest/api/content/45674401/child",
+        "restrictions": "/rest/api/content/45674401/restriction/byOperation",
+        "history": "/rest/api/content/45674401/history",
+        "body": "",
+        "descendants": "/rest/api/content/45674401/descendant"
+    }
+}
