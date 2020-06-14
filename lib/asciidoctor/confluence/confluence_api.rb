@@ -210,15 +210,15 @@ module Asciidoctor
           begin
             if resp.code.between?(200, 399)
               return { success: true, code: resp.code, body: resp.body.length > 1 && JSON.parse(resp.body) }
+            elsif resp.code == 401
+              raise RuntimeError, 'invalid username or password, please confirm it.'
             else
-              return { success: false, code: resp.code, message: JSON.parse(resp.body) }
+              raise RuntimeError, "send request to confluence failed, code: #{resp.code}, error: #{resp.body}"
             end
           rescue => error
-            return { success: false, code: 500, message: error.message }
+            raise RuntimeError, "send request to confluence failed, code: #{resp.code}, error: #{error.message}"
           end
         end
-      rescue => error
-        return { success: false, code: 500, message: error.message }
       end
 
       def basic_auth_val
