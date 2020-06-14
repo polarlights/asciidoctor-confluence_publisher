@@ -4,9 +4,6 @@ require 'asciidoctor/cli'
 module Asciidoctor
   module Confluence
     class Command
-      # default template directory for asciidoctor_confluence marcos
-      DEFAULT_TEMPLATE_DIR = File.expand_path("../../../../template", __FILE__)
-
       def self.execute(args)
         options = Asciidoctor::Cli::Options.new
 
@@ -17,6 +14,8 @@ module Asciidoctor
         end
 
         orig_args = args.dup
+        # if the parameter is a directory, it will set to the root of source_file
+        source_dir = nil
         2.times do
           result = options.parse! args
           if result.is_a? Integer
@@ -24,6 +23,7 @@ module Asciidoctor
               file = args.first
               fstat = ::File.stat file
               if fstat.ftype == 'directory' && (input_files = parse_directory_files(file)).size > 0
+                source_dir = file
                 orig_args.reject! { |_arg| file == _arg }
                 orig_args.concat input_files
                 args = orig_args
@@ -36,11 +36,7 @@ module Asciidoctor
           end
         end
 
-
-        options[:backend] = 'xhtml5'
-        options[:template_dirs] = Array(options[:template_dirs]) << DEFAULT_TEMPLATE_DIR
-        options[:to_file] = false
-        options[:header_footer] = false
+        options[:asciidoc_source_dir] = source_dir
         invoker = Asciidoctor::Confluence::Invoker.new options
         GC.start
         invoker.invoke!
