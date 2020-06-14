@@ -15,6 +15,10 @@ module Asciidoctor
         def space=(space)
           @space = Space.new(space)
         end
+
+        def contain_ancestor?(ancestor_id)
+          @ancestors.any? { |ancestor| ancestor.id == ancestor_id.to_s }
+        end
       end
     end
   end

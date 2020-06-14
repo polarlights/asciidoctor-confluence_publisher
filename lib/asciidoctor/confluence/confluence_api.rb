@@ -6,11 +6,13 @@ module Asciidoctor
     class ConfluenceApi
       attr_reader :host, :space, :username
 
-      def initialize(host, space, username, password)
+      def initialize(host, space, username, password, skip_verify_ssl: false, proxy: nil)
         @host = host
         @space = space
         @username = username
         @password = password
+        @skip_verify_ssl = skip_verify_ssl
+        RestClient.proxy = proxy if proxy
       end
 
       # create a confluence page
@@ -46,7 +48,9 @@ module Asciidoctor
                     representation: 'storage'
                 }
             },
-            version: current_page.version.number + 1
+            version: {
+                number: current_page.version.number + 1
+            }
         }
 
         req_result = send_request(:put, url, payload, default_headers)
@@ -114,11 +118,10 @@ module Asciidoctor
             file: File.new(file_path, 'rb')
         }
         header = {
-            x_atlassian_token: 'nocheck',
-            content_type: 'multipart/form-data'
+            x_atlassian_token: 'nocheck'
         }
 
-        req_result = send_request(:post, url, payload, default_headers.merge(header))
+        req_result = send_request(:post, url, payload, default_headers.merge(header), multipart: true)
         Model::Attachment.new(req_result[:body]) if req_result[:success]
       end
 
@@ -182,18 +185,28 @@ module Asciidoctor
         options = req_options.dup
         options[:timeout] = 30
         if %w(get delete).include? mthd.to_s
-          payload = {}
           headers.merge!({ params: payload })
+          payload = {}
         elsif req_headers.empty?
           headers = { content_type: 'application/json' }
         end
 
-        RestClient::Request.execute(
+        if req_options[:multipart]
+          headers.delete(:content_type)
+        else
+          payload = payload.to_json
+        end
+
+        request_params = {
             method: mthd,
             url: url,
-            payload: payload.to_json,
+            payload: payload,
             headers: headers,
-            timeout: 30) do |resp, req, re|
+            timeout: 30
+        }
+        request_params[:verify_ssl] = false if @skip_verify_ssl
+
+        RestClient::Request.execute(request_params) do |resp, _, _|
           begin
             if resp.code.between?(200, 399)
               return { success: true, code: resp.code, body: resp.body.length > 1 && JSON.parse(resp.body) }
