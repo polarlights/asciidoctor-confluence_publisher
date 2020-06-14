@@ -1,0 +1,20 @@
+- case type
+- when :xref
+  - if target.end_with? ".html"
+    %ac:link
+      %ri:page{ "ri:content-title" => target }
+      %ac:plain-text-link-body="<![CDATA[#{(xref_text || %([#{attr :refid}]))}]]>"
+  - else
+    %ac:link{ "ac:anchor" => (anchor_name(target)) }
+      %ac:plain-text-link-body="<![CDATA[#{(xref_text || %([#{attr :refid}]))}]]>"
+- when :ref
+  %ac:structured-macro{ "ac:name" => "anchor" }
+    %ac:parameter=(anchor_name target)
+- else
+  - if uri_link? target
+    %a{href: target}=text
+  - else
+    %ac:link
+      %ri:attachment{ "ri:filename" => File.basename(target) }
+      - if target != text
+        %ac:plain-text-link-body="<![CDATA[#{text}]]>"

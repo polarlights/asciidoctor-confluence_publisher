@@ -150,6 +150,15 @@ module Haml::Helpers
     str.prepend('?') unless str.empty?
   end
 
+  #--------------------------------------------------------
+  # inline_anchor
+  #
+  # @return [String, nil] text of the xref anchor, or +nil+ if not found.
+  def xref_text
+    str = text || document.references[:ids][attr :refid || target]
+    str.tr_s("\n", ' ') if str
+  end
+
   # removes leading hash from anchor targets
   def anchor_name str
     if str.start_with? "#"

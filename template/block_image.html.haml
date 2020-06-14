@@ -2,9 +2,9 @@
   - href_target = attr :target
   %ac:image{ "ac:title" => title? && title, "ac:alt" => (attr :alt), "ac:height" => (attr :height), "ac:width" => (attr :width) }
     - if uri_link? href_target
-      %ri:url{ "ri:value" => href_target }
+      %ri:url{ "ri:value" => href_target }/
     - else
-      %ri:attatchment{ "ri:filename" => href_target }
+      %ri:attachment{ "ri:filename" => File.basename(href_target) }/
   - if title?
     .cp-image-title
       %em= captioned_title
