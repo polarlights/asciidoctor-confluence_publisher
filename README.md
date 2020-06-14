@@ -1,28 +1,33 @@
-# Asciidoctor::Confluence
+# AsciidoctorConfluence
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/asciidoctor/confluence`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+AsciidoctorConfluence is a command line tool that parse asciidoc files,
+generate confluence compatible html and upload the content and attachment to confluence.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```ruby
-gem 'asciidoctor-asciidoctor_confluence'
+gem install 'asciidoctor_confluence'
 ```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install asciidoctor-confluence
 
 ## Usage
 
-TODO: Write usage instructions here
+`asciidoctor-confluence` is built on asciidoctor gem, so the gem is compatible with
+all the arguments of asciidoctor. 
+
+The configuration of confluence can be set via attribute(`-a attr=attr_value`), or set via system environment.
+The attribute or environment are:
+
+
+attribute name | environment variable | note
+--- | -- | ---
+confluence_host | CONFLUENCE_HOST | confluence host with protocol.  Required.
+space | SPACE | confluence page space. Required.
+username | CONFLUENCE_USERNAME | confluence username. Required.
+password | CONFLUENCE_PASSWORD | confluence password. Required.
+ancestor_id | ANCESTOR_ID | page ancestor id. Required.
+proxy | CONFLUENCE_PROXY | confluence http proxy. Optional
+skip_verify_ssl | - | whether skip verify ssl. Optional
+
 
 ## Development
 
