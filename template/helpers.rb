@@ -18,6 +18,10 @@ module Haml::Helpers
   #
   UriRegexp = %r{^#{CG_ALPHA}[#{CC_ALNUM}.+-]+:/{0,2}}
 
+  def has_option? name
+    @attributes.has_key? %(#{name}-option)
+  end
+
   ##
   # Returns corrected section level.
   #
@@ -104,7 +108,7 @@ module Haml::Helpers
   #
   # @return true if the String is a URI, false if it is not
   def uri_link?(str)
-    (str.include? ':') && str =~ UriRegexp
+    str && (str.include? ':') && str =~ UriRegexp
   end
 
   def video_uri
@@ -145,4 +149,14 @@ module Haml::Helpers
 
     str.prepend('?') unless str.empty?
   end
+
+  # removes leading hash from anchor targets
+  def anchor_name str
+    if str.start_with? "#"
+      str[1..str.length]
+    else
+      str
+    end
+  end
+
 end

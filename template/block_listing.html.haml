@@ -8,7 +8,7 @@
       %ac:parameter{"ac:name" => "linenumbers"} true
     - if attr? :start
       %ac:parameter{"ac:name" => "firstline"}= attr :start
-    - wrap_code = (@document.attr? :prewrap) || !(option? :nowrap)
+    - wrap_code = (@document.attr? :prewrap) || (has_option?(:nowrap) && !(option? :nowrap))
     %ac:parameter{"ac:name" => "collapse"}= wrap_code
     %ac:plain-text-body= "<![CDATA[#{content}]]>"
 - else

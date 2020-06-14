@@ -7,7 +7,7 @@
         %ac:task-list
           %ac:task
             %ac:task-id= index
-            %ac:task-status= (item.attr? :checked?) ? 'complete' : 'imcomplete'
+            %ac:task-status= (item.attr? :checked) ? 'complete' : 'imcomplete'
             %ac:task-body= item.text
       - else
         =item.text

@@ -1,0 +1,9 @@
+%blockquote=content
+- if (attr? :attribution) or (attr? :citetitle)
+  .attribution{ style: 'text-align: right;'}
+    - if attr? :attribution
+      &#8212; #{attr :attribution}
+      - if attr? :citetitle
+        - if attr? :attribution
+          %br
+        %cite=attr :citetitle

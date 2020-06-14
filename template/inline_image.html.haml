@@ -1,6 +1,7 @@
-- attr? :link
-  %ac:image{ "ac:title" => title? && title, "ac:alt" => (attr :alt), "ac:height" => (attr :height), "ac:width" => (attr :width) }
-    - if uri_link? attr :target
-      %ri:url{ "ri:value" => attr :target }
+- haml_tag_if (attr? :link), :a, {href: (attr :link)} do
+  - href_target = target
+  %ac:image{ "ac:alt" => (attr :alt), "ac:height" => (attr :height), "ac:width" => (attr :width) }
+    - if uri_link? href_target
+      %ri:url{ "ri:value" => href_target }
     - else
-      %ri:attatchment{ "ri:filename" => attr :target }
+      %ri:attatchment{ "ri:filename" => href_target }

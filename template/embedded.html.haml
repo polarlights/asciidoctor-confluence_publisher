@@ -1,3 +1,4 @@
 - if (attr? :toc) && (attr? 'toc-placement', 'auto')
-  %p =Haml::Engine.new(File.read("block_toc.html.haml")).render
+  - current_dir = Pathname.new(File.dirname(__FILE__)).realpath
+  %p =Haml::Engine.new(File.read("#{current_dir}/block_toc.html.haml")).render
 = content

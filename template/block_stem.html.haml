@@ -1,7 +1,3 @@
-- open, close = Asciidoctor::BLOCK_MATH_DELIMITERS[@style.to_sym]
-- equation= content
-- unless (equation.start_with? open) && (equation.end_with? close)
-  - equation = %(#{open}#{equation}#{close})
 %ac:structured-macro{ "ac:name" => "mathjax-block-macro" }
   %ac:plain-text-body
-    = "<![CDATA[#{equation}]]>"
+    = "<![CDATA[#{content}]]>"

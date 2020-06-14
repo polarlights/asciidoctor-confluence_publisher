@@ -1,6 +1,6 @@
 %table
   - if title?
-    %caption.title =captioned_title
+    %caption.title= captioned_title
   - unless (attr :rowcount).zero?
     - [:head, :foot, :body].select {|tblsec| !@rows[tblsec].empty? }.each do |tblsec|
       - haml_tag "t#{tblsec}" do
