@@ -40,7 +40,6 @@ module Asciidoctor
         invoker = Asciidoctor::ConfluencePublisher::Invoker.new options
         GC.start
         invoker.invoke!
-        exit invoker.code
       end
 
       private

@@ -6,7 +6,7 @@ module Asciidoctor
       # default template directory for asciidoctor_confluence marcos
       DEFAULT_TEMPLATE_DIR = File.expand_path("../../../../template", __FILE__)
 
-      attr_reader :options, :code
+      attr_reader :options
       def initialize(options)
         @options = options.dup
         @options[:to_file] = nil
@@ -18,11 +18,11 @@ module Asciidoctor
         @options[:header_footer] = false
         # confluence related configuration
         attributes = options[:attributes] || {}
-        attributes['confluence_host'] = ENV['CONFLUENCE_HOST']
-        attributes['space'] = ENV['SPACE']
-        attributes['username'] = ENV['CONFLUENCE_USERNAME']
-        attributes['password'] = ENV['CONFLUENCE_PASSWORD']
-        @ancestor_id = (attributes['ancestor_id'] = ENV['ANCESTOR_ID'])
+        attributes['confluence_host'] ||= ENV['CONFLUENCE_HOST']
+        attributes['space'] ||= ENV['SPACE']
+        attributes['username'] ||= ENV['CONFLUENCE_USERNAME']
+        attributes['password'] ||= ENV['CONFLUENCE_PASSWORD']
+        @ancestor_id = (attributes['ancestor_id'] ||= ENV['ANCESTOR_ID'])
         check_confluence_config(attributes)
 
         proxy = attributes[:proxy] || ENV['CONFLUENCE_PROXY']
@@ -41,8 +41,6 @@ module Asciidoctor
         input_files.map(&method(:build_file_tree)).each do |node|
           traverse_file_tree(@ancestor_id, node, &method(:convert_and_publish))
         end
-
-        @code = 0
       end
 
       private
@@ -73,7 +71,7 @@ module Asciidoctor
             source_file_dir += "/#{link.imagesdir}"
           end
           file_path = File.join(source_file_dir, link.to_s)
-          next if !File.exists?(file_path)
+          next if !File.exist?(file_path)
           file_md5 = Digest::MD5.hexdigest File.read(file_path)
           filename = File.basename(file_path)
 

@@ -1,0 +1,543 @@
+<p>A brief reference of the most commonly used AsciiDoc syntax.
+You can find the full documentation for the AsciiDoc syntax at <a href="https://asciidoctor.org/docs">https://asciidoctor.org/docs</a>.</p>
+<h1 id="_paragraphs">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_paragraphs
+</ac:parameter>
+</ac:structured-macro>
+Paragraphs
+</h1>
+<p>A normal paragraph.
+Line breaks are not preserved.</p>
+<p>A blank line separates paragraphs.</p>
+<p>This paragraph carries the <code>hardbreaks</code> option.<br/>
+Notice how line breaks are now preserved.</p>
+<div class="literalblock">
+<div class="content">
+<pre>An indented (literal) paragraph disables text formatting,
+preserves spaces and line breaks, and is displayed in a
+monospaced font.</pre>
+</div>
+</div>
+<div id="id" class="sidebarblock role">
+<div class="content">
+A style, ID, and/or role gives a paragraph (or block) special meaning, like this sidebar.
+</div>
+</div>
+<ac:structured-macro ac:name="info">
+<ac:rich-text-body>
+<p>An admonition paragraph, like this note, grabs the reader&#8217;s attention.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="tip">
+<ac:rich-text-body>
+<p>Convert this document using the <code>asciidoctor</code> command to see the output produced from it.</p>
+</ac:rich-text-body>
+</ac:structured-macro>
+<h1 id="_text_formatting">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_text_formatting
+</ac:parameter>
+</ac:structured-macro>
+Text Formatting
+</h1>
+<div class="cp-paragraph-title">
+<em>Constrained (applied at word boundaries)</em>
+</div>
+<p><strong>strong importance</strong> (aka bold)<br/>
+<em>stress emphasis</em> (aka italic)<br/>
+<code>monospaced</code> (aka typewriter text)<br/>
+&#8220;double&#8221; and &#8216;single&#8217; typographic quotes<br/>
+passthrough text (substitutions disabled)<br/>
+<code>literal text</code> (monospaced with substitutions disabled)</p>
+<div class="cp-paragraph-title">
+<em>Unconstrained (applied anywhere)</em>
+</div>
+<p><strong>C</strong>reate+<strong>R</strong>ead+<strong>U</strong>pdate+<strong>D</strong>elete<br/>
+fan<em>freakin</em>tastic<br/>
+<code>mono</code>culture</p>
+<div class="cp-paragraph-title">
+<em>Replacements</em>
+</div>
+<p>A long time ago in a galaxy far, far away&#8230;&#8203;<br/>
+&#169; 1976 Arty Artisan<br/>
+I believe I shall&#8212;&#8203;no, actually I won&#8217;t.</p>
+<div class="cp-paragraph-title">
+<em>Macros</em>
+</div>
+<p>The European <ac:image ac:alt="flag"><br/>
+<ri:attachment ri:filename="flag" /><br/>
+</ac:image> is blue &amp; contains ************ arranged in a <ac:image ac:alt="circle o"><br/>
+<ri:attachment ri:filename="circle-o" /><br/>
+</ac:image>.<br/>
+The -&gt; operator is often referred to as the stabby lambda.<br/>
+Since <code>++</code> has strong priority in AsciiDoc, you can rewrite C++ &#8658; C&#43;&#43;.<br/>
+\$sqrt(4) = 2\$</p>
+<h1 id="_attributes">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_attributes
+</ac:parameter>
+</ac:structured-macro>
+Attributes
+</h1>
+<div class="literalblock">
+<div class="content">
+<pre>// define attributes in the document header; must be flush with left margin
+:name: value</pre>
+</div>
+</div>
+<p>You can download and install Asciidoctor 2.0.10 from <a href="https://rubygems.org/gems/asciidoctor">https://rubygems.org/gems/asciidoctor</a>.
+C&#43;&#43; is not required, only Ruby.
+Use a leading backslash to output a word enclosed in curly braces, like {name}.</p>
+<h1 id="_links">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_links
+</ac:parameter>
+</ac:structured-macro>
+Links
+</h1>
+<p><a href="https://example.org/page">A webpage</a><br/>
+<ac:link><br/>
+<ri:attachment ri:filename="file.txt"></ri:attachment><br/>
+<ac:plain-text-link-body><![CDATA[A local file]]></ac:plain-text-link-body><br/>
+</ac:link><br/>
+<ac:link><br/>
+<ri:page ri:content-title="document.html"></ri:page><br/>
+<ac:plain-text-link-body><![CDATA[A sibling document]]></ac:plain-text-link-body><br/>
+</ac:link><br/>
+<a href="mailto:hello@example.org">Email to say hello!</a></p>
+<h1 id="_anchors">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_anchors
+</ac:parameter>
+</ac:structured-macro>
+Anchors
+</h1>
+<p>A paragraph (or any block) with an anchor (aka ID) and reftext.</p>
+<p>See <ac:link ac:anchor="idname">
+<ac:plain-text-link-body><![CDATA[[idname]]]></ac:plain-text-link-body>
+</ac:link> or <ac:link ac:anchor="idname">
+<ac:plain-text-link-body><![CDATA[optional text of internal link]]></ac:plain-text-link-body>
+</ac:link>.</p>
+<p><ac:link ac:anchor="document.html#idname">
+<ac:plain-text-link-body><![CDATA[Jumps to anchor in another document]]></ac:plain-text-link-body>
+</ac:link>.</p>
+<p>This paragraph has a footnote.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<h1 id="_lists">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_lists
+</ac:parameter>
+</ac:structured-macro>
+Lists
+</h1>
+<h2 id="_unordered">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_unordered
+</ac:parameter>
+</ac:structured-macro>
+Unordered
+</h2>
+<ul>
+<li>
+level 1
+<ul>
+<li>
+level 2
+<ul>
+<li>
+level 3
+<ul>
+<li>
+level 4
+<ul>
+<li>
+etc.
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+back at level 1
+<p>Attach a block or paragraph to a list item using a list continuation (which you can enclose in an open block).</p>
+</li>
+</ul>
+<div class="cp-ulist-title">=title</div>
+<ul>
+<li>
+Edgar Allen Poe
+</li>
+<li>
+Sheri S. Tepper
+</li>
+<li>
+Bill Bryson
+</li>
+</ul>
+<h2 id="_ordered">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_ordered
+</ac:parameter>
+</ac:structured-macro>
+Ordered
+</h2>
+<ol>
+<li>
+<p>Step 1</p>
+</li>
+<li>
+<p>Step 2</p>
+<ol>
+<li>
+<p>Step 2a</p>
+</li>
+<li>
+<p>Step 2b</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Step 3</p>
+</li>
+</ol>
+<div class="cp-olist-title">Remember your Roman numerals?</div>
+<ol>
+<li>
+<p>is one</p>
+</li>
+<li>
+<p>is two</p>
+</li>
+<li>
+<p>is three</p>
+</li>
+</ol>
+<h2 id="_checklist">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_checklist
+</ac:parameter>
+</ac:structured-macro>
+Checklist
+</h2>
+<ul>
+<li>
+<ac:task-list>
+<ac:task>
+<ac:task-id>0</ac:task-id>
+<ac:task-status>complete</ac:task-status>
+<ac:task-body>checked</ac:task-body>
+</ac:task>
+</ac:task-list>
+</li>
+<li>
+<ac:task-list>
+<ac:task>
+<ac:task-id>1</ac:task-id>
+<ac:task-status>imcomplete</ac:task-status>
+<ac:task-body>not checked</ac:task-body>
+</ac:task>
+</ac:task-list>
+</li>
+</ul>
+<h2 id="_callout">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_callout
+</ac:parameter>
+</ac:structured-macro>
+Callout
+</h2>
+<ac:structured-macro ac:name="code">
+<ac:parameter ac:name="language">ruby</ac:parameter>
+<ac:parameter ac:name="collapse">true</ac:parameter>
+<ac:plain-text-body><![CDATA[puts 'Hello, World!' <i class="conum" data-value="1"></i><b>(1)</b>]]></ac:plain-text-body>
+</ac:structured-macro>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Prints <code>Hello, World!</code> to the console.</td>
+</tr>
+</table>
+</div>
+<h2 id="_description">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_description
+</ac:parameter>
+</ac:structured-macro>
+Description
+</h2>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">first term</dt>
+<dd>
+<p>description of first term</p>
+</dd>
+<dt class="hdlist1">second term</dt>
+<dd>
+<p>description of second term</p>
+</dd>
+</dl>
+</div>
+<h1 id="_document_structure">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_document_structure
+</ac:parameter>
+</ac:structured-macro>
+Document Structure
+</h1>
+<h2 id="_header">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_header
+</ac:parameter>
+</ac:structured-macro>
+Header
+</h2>
+<div class="literalblock">
+<div class="content">
+<pre>// header must be flush with left margin
+= Document Title
+Author Name &lt;author@example.org&gt;
+v1.0, 2019-01-01</pre>
+</div>
+</div>
+<h2 id="_sections">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_sections
+</ac:parameter>
+</ac:structured-macro>
+Sections
+</h2>
+<div class="literalblock">
+<div class="content">
+<pre>// must be flush with left margin
+= Document Title (Level 0)
+== Level 1
+=== Level 2
+==== Level 3
+===== Level 4
+====== Level 5
+== Back at Level 1</pre>
+</div>
+</div>
+<h2 id="_includes">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_includes
+</ac:parameter>
+</ac:structured-macro>
+Includes
+</h2>
+<div class="literalblock">
+<div class="content">
+<pre>// must be flush with left margin
+include::basics.adoc[]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>// define -a allow-uri-read to allow content to be read from URI
+include::https://example.org/installation.adoc[]</pre>
+</div>
+</div>
+<h1 id="_blocks">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_blocks
+</ac:parameter>
+</ac:structured-macro>
+Blocks
+</h1>
+<div class="openblock">
+<div class="content">
+<p>open - a general-purpose content wrapper; useful for enclosing content to attach to a list item</p>
+</div>
+</div>
+<ac:structured-macro ac:name="info">
+<ac:rich-text-body>
+<p><p>admonition - a notice for the reader, ranging in severity from a tip to an alert</p></p>
+</ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="expand">
+<ac:rich-text-body><p>example - a demonstration of the concept being documented</p></ac:rich-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="expand">
+<ac:parameter ac:name="title">Toggle Me</ac:parameter>
+<ac:rich-text-body><p>collapsible - these details are revealed by clicking the title</p></ac:rich-text-body>
+</ac:structured-macro>
+<div class="sidebarblock">
+<div class="content">
+<p>sidebar - auxiliary content that can be read independently of the main content</p>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>literal - an exhibit that features program output</pre>
+</div>
+</div>
+<ac:structured-macro ac:name="noformat">
+<ac:plain-text-body><![CDATA[listing - an exhibit that features program input, source code, or the contents of a file]]></ac:plain-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="code">
+<ac:parameter ac:name="collapse">true</ac:parameter>
+<ac:plain-text-body><![CDATA[source - a listing that is embellished with (colorized) syntax highlighting]]></ac:plain-text-body>
+</ac:structured-macro>
+<ac:structured-macro ac:name="code">
+<ac:parameter ac:name="collapse">true</ac:parameter>
+<ac:plain-text-body><![CDATA[fenced code - a shorthand syntax for the source block]]></ac:plain-text-body>
+</ac:structured-macro>
+<blockquote><p>quote - a quotation or excerpt; attribution with title of source are optional</p></blockquote>
+<div class="attribution" style="text-align: right;">
+&#8212; attribution
+<br />
+<cite>citetitle</cite>
+</div>
+<pre class="content">verse - a literary excerpt, often a poem; attribution with title of source are optional</pre>
+<div class="attribution">
+&#8212; attribution
+<br />
+<cite>citetitle</cite>
+</div>
+pass - content passed directly to the output document; often raw HTML
+<ac:structured-macro ac:name="mathjax-block-macro">
+<ac:plain-text-body>
+<![CDATA[x = y^2]]>
+</ac:plain-text-body>
+</ac:structured-macro>
+<h1 id="_tables">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_tables
+</ac:parameter>
+</ac:structured-macro>
+Tables
+</h1>
+<table>
+<caption class="title">Table 1. Table Attributes</caption>
+<thead>
+<tr>
+  <th>
+Attribute Name
+  </th>
+  <th>
+Values
+  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <th>
+options
+  </th>
+  <td>
+header,footer,autowidth
+  </td>
+</tr>
+<tr>
+  <th>
+cols
+  </th>
+  <td>
+colspec[;colspec;&#8230;&#8203;]
+  </td>
+</tr>
+<tr>
+  <th>
+grid
+  </th>
+  <td>
+all | cols | rows | none
+  </td>
+</tr>
+<tr>
+  <th>
+frame
+  </th>
+  <td>
+all | sides | topbot | none
+  </td>
+</tr>
+<tr>
+  <th>
+stripes
+  </th>
+  <td>
+all | even | odd | none
+  </td>
+</tr>
+<tr>
+  <th>
+width
+  </th>
+  <td>
+(0%..100%)
+  </td>
+</tr>
+<tr>
+  <th>
+format
+  </th>
+  <td>
+psv | csv | dsv
+  </td>
+</tr>
+</tbody>
+</table>
+<h1 id="_multimedia">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_multimedia
+</ac:parameter>
+</ac:structured-macro>
+Multimedia
+</h1>
+<ac:image ac:alt="block image" ac:height="450" ac:width="800">
+<ri:attachment ri:filename="screenshot.png" />
+</ac:image>
+<p>Press <ac:image ac:alt="reload" ac:width="16">
+<ri:attachment ri:filename="reload.svg" />
+</ac:image> to reload the page.</p>
+<div class="videoblock">
+<div class="content">
+<video autoplay="autoplay" controls="controls" src="movie.mp4#t=60,140" width="640">
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/aHjpOzsQ9YI?rel=0"></iframe>
+</div>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe allowfullscreen="allowfullscreen" frameborder="0" src="//player.vimeo.com/video/300817511"></iframe>
+</div>
+</div>
+<h1 id="_breaks">
+<ac:structured-macro ac:name="anchor">
+<ac:parameter ac:name="">
+_breaks
+</ac:parameter>
+</ac:structured-macro>
+Breaks
+</h1>
+<hr/>
+<div style="page-break-after: always;"></div>

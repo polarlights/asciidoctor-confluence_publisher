@@ -1,4 +1,4 @@
-- haml_tag_if (attr? :link), :a, {href: (attr :link)} do
+- haml_tag_if((attr? :link), :a, {href: (attr :link)}) do
   - href_target = target
   %ac:image{ "ac:alt" => (attr :alt), "ac:height" => (attr :height), "ac:width" => (attr :width) }
     - if uri_link? href_target
