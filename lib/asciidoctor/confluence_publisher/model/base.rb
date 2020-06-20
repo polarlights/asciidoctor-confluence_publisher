@@ -3,7 +3,7 @@ module Asciidoctor
     module Model
       class Base
         def initialize(hash = {})
-          accessor_methods = public_methods(false).select { |mth| mth.match? "=$" }
+          accessor_methods = public_methods(false).select { |mth| mth.to_s =~ /\w+=$/ }
           hash.each do |key, val|
             setter_method = "#{key}="
             if accessor_methods.include?(setter_method.to_sym)

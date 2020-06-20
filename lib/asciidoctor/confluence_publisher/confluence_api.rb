@@ -66,7 +66,7 @@ module Asciidoctor
           req_result = send_request(:get, url, payload, default_headers)
           Model::Page.new(req_result[:body]) if req_result[:success]
         rescue => e
-          $stderr.puts "not found page with id #{page_id}"
+          $stderr.puts "not found page with id #{page_id}. message: #{e.message}"
         end
       end
 

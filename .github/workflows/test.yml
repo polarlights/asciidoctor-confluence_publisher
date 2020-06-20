@@ -9,11 +9,11 @@ on:
 jobs:
   test:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        os: [ubuntu, macos]
-        ruby: [2.2, 2.3, 2.4, 2.5, 2.6, 2.7, head]
-    runs-on: ${{ matrix.os }}-latest
+        os: [ubuntu]
+        ruby: [2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7]
+    runs-on: ${{ matrix.os }}-16.04
     continue-on-error: ${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}
     steps:
     - uses: actions/checkout@v2
