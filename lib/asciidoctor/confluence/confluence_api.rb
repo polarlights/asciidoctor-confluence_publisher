@@ -159,8 +159,11 @@ module Asciidoctor
             expand: 'version'
         }
 
-        req_result = send_request(:get, url, payload, default_headers)
-        Model::Property.new req_result[:body] if req_result[:success]
+        begin
+          req_result = send_request(:get, url, payload, default_headers)
+          Model::Property.new req_result[:body] if req_result[:success]
+        rescue => e
+        end
       end
 
       def remove_page_property(owner_id, key)

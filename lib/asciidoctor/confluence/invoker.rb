@@ -18,19 +18,19 @@ module Asciidoctor
         @options[:header_footer] = false
         # confluence related configuration
         attributes = options[:attributes] || {}
-        attributes[:confluence_host] ||= ENV['CONFLUENCE_HOST']
-        attributes[:space] ||= ENV['SPACE']
-        attributes[:username] ||= ENV['CONFLUENCE_USERNAME']
-        attributes[:password] ||= ENV['CONFLUENCE_PASSWORD']
-        @ancestor_id = (attributes[:ancestor_id] ||= ENV['ANCESTOR_ID'])
+        attributes['confluence_host'] = ENV['CONFLUENCE_HOST']
+        attributes['space'] = ENV['SPACE']
+        attributes['username'] = ENV['CONFLUENCE_USERNAME']
+        attributes['password'] = ENV['CONFLUENCE_PASSWORD']
+        @ancestor_id = (attributes['ancestor_id'] = ENV['ANCESTOR_ID'])
         check_confluence_config(attributes)
 
         proxy = attributes[:proxy] || ENV['CONFLUENCE_PROXY']
         skip_verify_ssl = attributes['skip_verify_ssl'].to_s == 'true'
-        @confluence_client = ConfluenceApi.new(attributes[:confluence_host],
-                                               attributes[:space],
-                                               attributes[:username],
-                                               attributes[:password],
+        @confluence_client = ConfluenceApi.new(attributes['confluence_host'],
+                                               attributes['space'],
+                                               attributes['username'],
+                                               attributes['password'],
                                                skip_verify_ssl: skip_verify_ssl,
                                                proxy: proxy)
       end
@@ -105,7 +105,7 @@ module Asciidoctor
 
       def check_confluence_config(attributes)
         empty_attrs = %w(confluence_host space username password ancestor_id).select do |prop|
-          attr = attributes[prop.to_sym]
+          attr = attributes[prop]
           attr.nil? || attr.to_s.strip.length < 1
         end
         raise empty_attrs.join(', ') if empty_attrs.size > 0
