@@ -1,14 +1,14 @@
-require_relative 'lib/asciidoctor/confluence/version'
+require_relative 'lib/asciidoctor/confluence_publisher/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "asciidoctor-confluence"
-  spec.version       = Asciidoctor::Confluence::VERSION
+  spec.name          = "asciidoctor-confluence_publisher"
+  spec.version       = Asciidoctor::ConfluencePublisher::VERSION
   spec.authors       = ["polarlights"]
   spec.email         = ["godhuyang@hotmail.com"]
 
-  spec.summary       = %q{Parse asciidoc and publish the document to asciidoctor_confluence.}
-  spec.description   = %q{Asciidoctor-Confluence parse asciidoc and publish the document to asciidoctor_confluence.}
-  spec.homepage      = "https://github.com/polarlights/asciidoctor-asciidoctor_confluence"
+  spec.summary       = %q{Parse asciidoc and publish the document to confluence.}
+  spec.description   = %q{Asciidoctor-Confluence parse asciidoc and publish the document to confluence.}
+  spec.homepage      = "https://github.com/polarlights/asciidoctor-confluence_publisher"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.executables   = ['asciidoctor-confluence']
+  spec.executables   = ['confluence-publisher']
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'asciidoctor', '~> 2.0.0'

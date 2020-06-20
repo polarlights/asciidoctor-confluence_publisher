@@ -1,7 +1,7 @@
 require 'digest'
 
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     class Invoker
       # default template directory for asciidoctor_confluence marcos
       DEFAULT_TEMPLATE_DIR = File.expand_path("../../../../template", __FILE__)
@@ -114,7 +114,7 @@ module Asciidoctor
       def build_file_tree(root)
         node = nil
         if File.directory?(root) || File.file?(root) && File.extname(root) =~ /.(adoc|asc|asciidoc)$/
-          node = Asciidoctor::Confluence::Asciidoc.new(root)
+          node = Asciidoctor::ConfluencePublisher::Asciidoc.new(root)
         end
         return node if File.file?(root)
 

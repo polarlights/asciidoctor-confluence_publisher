@@ -1,5 +1,5 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     module Model
       class Base
         def initialize(hash = {})

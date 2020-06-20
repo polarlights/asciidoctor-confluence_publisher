@@ -1,14 +1,14 @@
-require 'asciidoctor_confluence'
+require 'asciidoctor/confluence_publisher'
 require 'asciidoctor/cli'
 
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     class Command
       def self.execute(args)
         options = Asciidoctor::Cli::Options.new
 
         unless args != ['-v'] && (args & ['-V', '--version']).empty?
-          $stdout.write %(Asciidoctor Confluence #{Asciidoctor::Confluence::VERSION} using )
+          $stdout.write %(Asciidoctor Confluence #{Asciidoctor::ConfluencePublisher::VERSION} using )
           options.print_version
           exit 0
         end
@@ -37,7 +37,7 @@ module Asciidoctor
         end
 
         options[:asciidoc_source_dir] = source_dir
-        invoker = Asciidoctor::Confluence::Invoker.new options
+        invoker = Asciidoctor::ConfluencePublisher::Invoker.new options
         GC.start
         invoker.invoke!
         exit invoker.code

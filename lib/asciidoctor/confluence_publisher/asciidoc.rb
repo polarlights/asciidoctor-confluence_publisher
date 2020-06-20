@@ -1,5 +1,5 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     class Asciidoc
       attr_reader :path, :children
 

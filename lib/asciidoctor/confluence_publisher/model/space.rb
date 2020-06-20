@@ -1,5 +1,5 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     module Model
       class Space < Base
         attr_accessor :key

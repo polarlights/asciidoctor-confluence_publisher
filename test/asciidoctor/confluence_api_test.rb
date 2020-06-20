@@ -4,7 +4,7 @@ require 'webmock/minitest'
 class ConfluenceApiTest < MiniTest::Test
   def setup
     @space = 'space'
-    @confluence_api = Asciidoctor::Confluence::ConfluenceApi.new('https://example.com', @space, 'username', 'password')
+    @confluence_api = Asciidoctor::ConfluencePublisher::ConfluenceApi.new('https://example.com', @space, 'username', 'password')
   end
 
   def test_create_page_should_work
@@ -32,7 +32,7 @@ class ConfluenceApiTest < MiniTest::Test
     content = '<p>hello</p>'
 
     page = @confluence_api.update_page(45674401, title, content)
-    assert_requested(:put, /example.com/, times: 1) { |req| JSON.parse(req.body)['version'] == 2 }
+    assert_requested(:put, /example.com/, times: 1) { |req| JSON.parse(req.body)['version']['number'] == 2 }
     assert_equal title, page.title
     assert_equal @space, page.space.key
     assert_equal 2, page.version.number
@@ -83,7 +83,7 @@ class ConfluenceApiTest < MiniTest::Test
     attachment = @confluence_api.create_attachment(1, file_path)
     assert_requested(:post, /example.com/, times: 1) do |req|
       req.headers['X-Atlassian-Token'] == 'nocheck' &&
-          req.headers['Content-Type'] == 'multipart/form-data'
+          req.headers['Content-Type'] =~ /^multipart\/form-data/
     end
     assert_equal File.basename(file_path), attachment.title
   end

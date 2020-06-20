@@ -1,5 +1,5 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     module Model
       class Ancestor < Base
         attr_accessor :id

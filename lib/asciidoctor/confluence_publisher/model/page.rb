@@ -1,5 +1,5 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     module Model
       class Page < Base
         attr_accessor :id, :title, :space, :version, :ancestors

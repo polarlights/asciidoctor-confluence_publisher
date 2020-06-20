@@ -1,8 +1,8 @@
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     module Model
-      class Property < Base
-        attr_accessor :key, :value, :version
+      class Attachment < Base
+        attr_accessor :id, :title, :version
 
         def version=(ver)
           @version = Version.new(ver)
@@ -11,3 +11,4 @@ module Asciidoctor
     end
   end
 end
+

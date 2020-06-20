@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 
 module Asciidoctor
-  module Confluence
+  module ConfluencePublisher
     class ConfluenceApi
       attr_reader :host, :space, :username
 
@@ -62,8 +62,12 @@ module Asciidoctor
         payload = {
             expand: 'version,space,ancestors'
         }
-        req_result = send_request(:get, url, payload, default_headers)
-        Model::Page.new(req_result[:body]) if req_result[:success]
+        begin
+          req_result = send_request(:get, url, payload, default_headers)
+          Model::Page.new(req_result[:body]) if req_result[:success]
+        rescue => e
+          $stderr.puts "not found page with id #{page_id}"
+        end
       end
 
       def get_pages_by_title(title)

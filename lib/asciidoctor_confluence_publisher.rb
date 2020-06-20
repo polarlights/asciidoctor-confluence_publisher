@@ -1,0 +1,1 @@
+require_relative "asciidoctor/confluence_publisher"

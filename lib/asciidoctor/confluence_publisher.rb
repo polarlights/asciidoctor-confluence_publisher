@@ -1,0 +1,12 @@
+require 'asciidoctor'
+require_relative "confluence_publisher/version"
+require_relative "confluence_publisher/invoker"
+require_relative 'confluence_publisher/model/base'
+require_relative 'confluence_publisher/model/ancestor'
+require_relative 'confluence_publisher/model/attachment'
+require_relative 'confluence_publisher/model/property'
+require_relative 'confluence_publisher/model/space'
+require_relative 'confluence_publisher/model/version'
+require_relative 'confluence_publisher/model/page'
+require_relative 'confluence_publisher/confluence_api'
+require_relative 'confluence_publisher/asciidoc'
