@@ -5,6 +5,8 @@ generate confluence compatible html and upload the content and attachment to con
 
 This repo inspired by [confluence-publisher](https://github.com/confluence-publisher/confluence-publisher)
 
+**It requires Ruby 2.x. works for Confluence 6+.**
+
 ## Installation
 
 ```ruby
