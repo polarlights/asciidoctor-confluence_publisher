@@ -65,6 +65,16 @@ module Haml::Helpers
     supported.include? lang
   end
 
+  # default block list with *specialcharactor* substitution, in confluence just keep it as it is.
+  def raw_content
+    return content if attr? 'subs'
+    orig_subs = @subs
+    @subs = []
+    result =  content
+    @subs = orig_subs
+    return result
+  end
+
   #--------------------------------------------------------
   # block_table
   #
