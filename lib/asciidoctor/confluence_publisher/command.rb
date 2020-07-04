@@ -18,22 +18,15 @@ module Asciidoctor
         source_dir = nil
         2.times do
           result = options.parse! args
-          if result.is_a? Integer
-            if args.size == 1
-              file = args.first
-              fstat = ::File.stat file
-              if fstat.ftype == 'directory' && (input_files = parse_directory_files(file)).size > 0
-                source_dir = file
-                orig_args.reject! { |_arg| file == _arg }
-                orig_args.concat input_files
-                args = orig_args
-              else
-                exit result
-              end
-            else
-              exit result
-            end
+          break unless result.is_a? Integer
+
+          can_retry = false
+          if args.size == 1
+            source_dir = args.first
+            args = convert_directory_to_files(source_dir, orig_args)
+            can_retry = true
           end
+          exit result unless can_retry
         end
 
         options[:asciidoc_source_dir] = source_dir
@@ -43,6 +36,16 @@ module Asciidoctor
       end
 
       private
+
+      def self.convert_directory_to_files(file, orig_args)
+        fstat = ::File.stat file
+        if fstat.ftype == 'directory' && (input_files = parse_directory_files(file)).size > 0
+          orig_args.reject! { |_arg| file == _arg }
+          orig_args.concat input_files
+          return orig_args
+        end
+      end
+
       # hack asciidoctor to support folder
       def self.parse_directory_files(directory)
         infiles = []

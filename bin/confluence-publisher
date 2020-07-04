@@ -2,6 +2,5 @@
 # frozen_string_literal: true
 $LOAD_PATH.unshift File.expand_path '../../lib', __FILE__
 require 'asciidoctor/confluence_publisher/command'
-require 'pry-byebug'
 
 Asciidoctor::ConfluencePublisher::Command.execute ARGV
