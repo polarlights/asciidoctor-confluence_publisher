@@ -8,8 +8,10 @@
     %ac:link{ "ac:anchor" => (anchor_name(target)) }
       %ac:plain-text-link-body="<![CDATA[#{(xref_text || %([#{attr :refid}]))}]]>"
 - when :ref
+  - debugger
   %ac:structured-macro{ "ac:name" => "anchor" }
-    %ac:parameter=(anchor_name target)
+    %ac:parameter{"ac:name" => "" }
+      = id
 - else
   - if uri_link? target
     %a{href: target}=text
